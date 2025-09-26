@@ -23,7 +23,7 @@ fi
 # Run the executable 
 if [ $? -eq 0 ]; then
     echo "Build successful. Running the program..."
-    ./eyeball
+    ./eyeball &
 else
     echo "Build failed."
 fi
