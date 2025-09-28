@@ -16,3 +16,6 @@ add_executable(eyeball
 
 target_compile_options(eyeball PRIVATE -Wall -Wextra)
 
+# Install the executable to /usr/local/bin by default
+install(TARGETS eyeball
+        RUNTIME DESTINATION bin)
