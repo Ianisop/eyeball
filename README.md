@@ -1,4 +1,5 @@
-# eyeball
+# eyeba# Eyeball
+ll
 Eyeball uses inotify to sort your junk and keeps your downloads folder empty.
 It's designed to run as a cli tool, which forks it's own daemon to run in the background.
 It's super lightweight and works by moving your regular files to their own folders.
@@ -8,7 +9,7 @@ Simply create or move the provided example config to ```/.config/eyeball/``` and
 ## Building
 Eyeball requires cmake and c++ 17 to work, so make sure you have that ready.
 You can easily build eyeball via the provided build script.
->[!WARNING] Remember to give the build script the right permissions.
+>Remember to give the build script the right permissions.
 ```./build.sh```
 And you're ready to go! 
 ## Running
