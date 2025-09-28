@@ -1,19 +1,49 @@
-# eyeba# Eyeball
-ll
-Eyeball uses inotify to sort your junk and keeps your downloads folder empty.
-It's designed to run as a cli tool, which forks it's own daemon to run in the background.
-It's super lightweight and works by moving your regular files to their own folders.
-Eyeball is configurable through it's own config file called ```paths.config```.
-Simply create or move the provided example config to ```/.config/eyeball/``` and your're ready to run.
+# eyeball
+Eyeball uses **inotify** to keep your downloads folder clean by automatically sorting files.
+It runs as a lightweight CLI tool that forks into a background daemon. Eyeball moves files into their configured folders based on file extensions, keeping your `Downloads` directory tidy.
+
+Configuration is handled via a file called `paths.config`.
+Place the provided example config in `~/.config/eyeball/` and you’re ready to run.
+
+---
 
 ## Building
-Eyeball requires cmake and c++ 17 to work, so make sure you have that ready.
-You can easily build eyeball via the provided build script.
->Remember to give the build script the right permissions.
-```./build.sh```
-And you're ready to go! 
-## Running
-You can toggle Eyeball via ```eyeball on``` and turn off again via ```eyeball off```.
-You can also view its current status via the ```eyeball status``` command any time, in case you forgot.
 
->It's currently **LINUX** only, sorry :(
+Eyeball requires **CMake** and **C++17**.
+To build, use the provided script:
+
+```bash
+./build.sh
+```
+
+> [!WARNING]
+> Make sure the build script has execute permissions before running it.
+
+---
+
+## Running
+
+Start Eyeball with:
+
+```bash
+eyeball on
+```
+
+Stop it with:
+
+```bash
+eyeball off
+```
+
+Check its current status anytime with:
+
+```bash
+eyeball status
+```
+
+---
+
+## Notes
+
+* Currently **Linux only**.
+
