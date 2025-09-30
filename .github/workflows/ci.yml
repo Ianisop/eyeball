@@ -1,0 +1,49 @@
+name: CI/CD
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  build-and-test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update || true
+          sudo apt-get install -y cmake g++ make libgtest-dev || true
+          # macOS will already have clang/cmake
+
+      - name: Build
+        run: |
+          cmake -S . -B build
+          cmake --build build --config Release
+
+      - name: Run tests
+        run: |
+          cd build
+          ctest --output-on-failure
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build release binary
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release
+          tar czf eyeball-${{ github.ref_name }}.tar.gz -C build eyeball
+
+      - name: Upload artifact to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          files: eyeball-${{ github.ref_name }}.tar.gz
