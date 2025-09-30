@@ -8,7 +8,7 @@ Place the provided example config in `~/.config/eyeball/` and you’re ready to 
 ![CI](https://github.com/Ianisop/eyeball/actions/workflows/ci.yml/badge.svg)
 
 ---
-
+> Releases are availible as single binaries, but its recommended you clone and build to ensure a symlink is created, if you know what you're doing, go ahead
 ## Building
 
 Eyeball requires **CMake** and **C++17**.
