@@ -5,6 +5,8 @@ It runs as a lightweight CLI tool that forks into a background daemon. Eyeball m
 Configuration is handled via a file called `paths.config`.
 Place the provided example config in `~/.config/eyeball/` and you’re ready to run.
 
+![CI](https://github.com/Ianisop/eyeball/actions/workflows/ci.yml/badge.svg)
+
 ---
 
 ## Building
