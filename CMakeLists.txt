@@ -11,9 +11,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Add the executable
 # Replace main.cpp with your source files
 add_executable(eyeball
-  main.cpp
+  src/main.cpp
 )
 
-# Optional: add extra compiler warnings
 target_compile_options(eyeball PRIVATE -Wall -Wextra)
 
+# Install the executable to /usr/local/bin by default
+install(TARGETS eyeball
+        RUNTIME DESTINATION bin)
